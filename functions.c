@@ -68,7 +68,7 @@ int print_int(long n, int base)
 
 /**
  * print_hex - Prints integer an integer in hexadecimal
- * @n: Integer to print
+ * @m: Integer to print
  * @x: the character alx X or x
  * Return: count of interger printed
  */

@@ -37,9 +37,9 @@ int print_u(int n, int base)
 
 
 /**
- * print_int - Prints an interger
+ * print_base - Prints an interger
  * @base: base to print the interger in
- * @n: Interger to print
+ * @m: Interger to print
  * Description: This only handle bases less that 10
  * Return: count of interger printed
  */
