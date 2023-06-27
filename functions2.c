@@ -49,7 +49,7 @@ int print_base(long m, int base)
 	unsigned int n = (unsigned int)m;
 
 	if (n / base != 0)
-		count += print_hex(n / base, base);
+		count += print_base(n / base, base);
 	count += print_char((n % base) + '0');
 	return (count);
 }
