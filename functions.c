@@ -33,6 +33,12 @@ int print_str(char *s)
 {
 	int count = 0;
 
+	if (s == NULL)
+	{
+		print_str("(null)");
+		return (-1);
+	}
+
 	while (*s != '\0')
 		count += print_char(*s++);
 	return (count);
