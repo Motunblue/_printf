@@ -28,25 +28,48 @@ case ('i'):
 count += print_int((long)va_arg(list, int), 10);
 break;
 case ('b'):
-count += print_int((long)va_arg(list, int), 2);
+count += print_base((long)va_arg(list, int), 2);
 break;
 case ('o'):
-count += print_int((long)va_arg(list, int), 8);
+count += print_base((long)va_arg(list, int), 8);
 break;
 case ('x'):
 count += print_hex((long)va_arg(list, int), 'x');
 break;
-case ('X'):
-count += print_hex((long)va_arg(list, int), 'X');
-break;
-case ('p'):
-count += print_ptr(va_arg(list, void*));
-break;
 default:
-if (c != '%')
-count += print_char('%');
-count += print_char(c);
+count += print_fmt2(c, list);
 break;
 }
 return (count);
+}
+
+/**
+ * print_fmt2 - Workd same as print_fmt
+ * @c: Character
+ * @list: argument list
+ * Return: count
+ */
+
+int print_fmt2(char c, va_list list)
+{
+	int count = 0;
+
+	switch (c)
+	{
+		case ('X'):
+			count += print_hex((long)va_arg(list, int), 'X');
+			break;
+		case ('p'):
+			count += print_ptr(va_arg(list, void*));
+			break;
+		case ('u'):
+			count += print_u(va_arg(list, int), 10);
+			break;
+		default:
+			if (c != '%')
+				count += print_char('%');
+			count += print_char(c);
+			break;
+	}
+	return (count);
 }

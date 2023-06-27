@@ -19,5 +19,8 @@ int print_int(long n, int base);
 int print_hex(long n, char x);
 int print_fmt(char c, va_list list);
 int print_ptr(const void *ptr);
+int print_u(int n, int base);
+int print_base(long m, int base);
+int print_fmt2(char c, va_list list);
 
 #endif

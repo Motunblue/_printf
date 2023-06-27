@@ -35,8 +35,8 @@ int print_str(char *s)
 
 	if (s == NULL)
 	{
-		print_str("(null)");
-		return (-1);
+		count += print_str("(null)");
+		return (count);
 	}
 
 	while (*s != '\0')
@@ -55,7 +55,6 @@ int print_int(long n, int base)
 {
 	int count = 0;
 
-
 	if (n < 0)
 	{
 		count += print_char('-');
@@ -73,16 +72,12 @@ int print_int(long n, int base)
  * @x: the character alx X or x
  * Return: count of interger printed
  */
-int print_hex(long n, char x)
+int print_hex(long m, char x)
 {
 	int count = 0;
 
+	unsigned int n = (unsigned int)m;
 
-	if (n < 0)
-	{
-		count += print_char('-');
-		n = -n;
-	}
 	if (n / 16 != 0)
 		count += print_hex(n / 16, x);
 	if ((n % 16) > 9)

@@ -11,6 +11,9 @@ va_list list;
 int count = 0;
 
 va_start(list, format);
+
+if (!format)
+	return (-1);
 while (format && *format)
 
 {
