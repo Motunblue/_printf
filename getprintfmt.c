@@ -25,7 +25,7 @@ case ('d'):
 count += print_int((long)va_arg(list, int), 10);
 break;
 case ('i'):
-ount += print_int((long)va_arg(list, int), 10);
+count += print_int((long)va_arg(list, int), 10);
 break;
 case ('b'):
 count += print_int((long)va_arg(list, int), 2);
