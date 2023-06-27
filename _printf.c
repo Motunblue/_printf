@@ -16,6 +16,11 @@ while (format && *format)
 {
 if (*format != '%')
 count += print_char(*format);
+else if (*format == '%' && !*(format + 1))
+{
+count = -1;
+break;
+}
 else
 count += print_fmt(*(++format), list);
 format++;
