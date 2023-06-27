@@ -7,13 +7,28 @@
  */
 int print_ptr(const void *ptr)
 {
+	static int q;
 	int count = 0;
 	unsigned long address = (unsigned long)ptr;
 
-	count += print_char('0');
-	count += print_char('x');
+	q = 0;
 
-	count += print_hex(address, 'x');
+	if (q == 0)
+	{
+		count += print_char('0');
+		count += print_char('x');
+		q = 1;
+	}
+
+	if (address / 16 != 0)
+		count += print_ptr((void *)(address / 16));
+	if ((address % 16) > 9)
+	{
+		count += print_char((address % 16) + 'x' - 33);
+	}
+	else
+		count += print_char((address % 16) + '0');
+
 	return (count);
 }
 
