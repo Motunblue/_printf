@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 {
 va_list list;
 int count = 0;
+int flag = 0;
 
 va_start(list, format);
 
@@ -25,7 +26,12 @@ count = -1;
 break;
 }
 else
-count += print_fmt(*(++format), list);
+{
+flag = getflag(*(format + 1));
+if (flag)
+++format;
+count += print_fmt(*(++format), list, flag);
+}
 format++;
 }
 print_char(-1);

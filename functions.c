@@ -46,23 +46,32 @@ int print_str(char *s)
 
 /**
  * print_int - Prints an interger
- * @base: base to print the interger in
+ * @flag: handles the flags
  * @n: Interger to print
  * Description: This only handle bases less that 10
  * Return: count of interger printed
  */
-int print_int(long n, int base)
+int print_int(long n, char flag)
 {
 	int count = 0;
 
-	if (n < 0)
+	if (flag)
 	{
-		count += print_char('-');
+		if (flag == '+')
+			count += (n < 0 ? print_char('-') : print_char('+'));
+		if (flag == ' ')
+			count += print_char(' ');
+	}
+
+	if ((n < 0))
+	{
+		if (!flag)
+			count += print_char('-');
 		n = -n;
 	}
-	if (n / base != 0)
-		count += print_int(n / base, base);
-	count += print_char((n % base) + '0');
+	if (n / 10 != 0)
+		count += print_int(n / 10, 0);
+	count += print_char((n % 10) + '0');
 	return (count);
 }
 
@@ -72,14 +81,22 @@ int print_int(long n, int base)
  * @x: the character alx X or x
  * Return: count of interger printed
  */
-int print_hex(long m, char x)
+int print_hex(long m, char x, char flag)
 {
 	int count = 0;
 
 	unsigned int n = (unsigned int)m;
 
+	if (flag)
+	{
+		if (flag == '#')
+			count += print_char('0');
+		count += print_char(x);
+	}
+
+
 	if (n / 16 != 0)
-		count += print_hex(n / 16, x);
+		count += print_hex(n / 16, x, 0);
 	if ((n % 16) > 9)
 	{
 		count += print_char((n % 16) + x - 33);
@@ -108,7 +125,7 @@ int print_S(char *s)
 			count += print_char('x');
 			if (*s < 16)
 				count += print_char('0');
-			count += print_hex(*s++, 'X');
+			count += print_hex(*s++, 'X', 0);
 		}
 		else
 		{
