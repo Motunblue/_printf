@@ -79,6 +79,7 @@ int print_int(long n, char flag)
  * print_hex - Prints integer an integer in hexadecimal
  * @m: Integer to print
  * @x: the character alx X or x
+ * @flag: handles the flags
  * Return: count of interger printed
  */
 int print_hex(long m, char x, char flag)

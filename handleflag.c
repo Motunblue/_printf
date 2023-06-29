@@ -3,6 +3,7 @@
 /**
  * getflag - a function that gets flags for different specifiers
  * @c: the flag
+ * Return: 0
  */
 
 char getflag(char c)
