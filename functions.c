@@ -59,13 +59,13 @@ int print_int(long n, char flag)
 	{
 		if (flag == '+')
 			count += (n < 0 ? print_char('-') : print_char('+'));
-		if (flag == ' ')
+		if (flag == ' ' && n >= 0)
 			count += print_char(' ');
 	}
 
 	if ((n < 0))
 	{
-		if (!flag)
+		if (flag != '+')
 			count += print_char('-');
 		n = -n;
 	}

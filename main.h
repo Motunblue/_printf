@@ -22,5 +22,7 @@ int print_u(int n, int base);
 int print_base(long m, int base, char flag);
 int print_fmt2(char c, va_list list, char flag);
 char getflag(char c);
+int print_r(char *);
+int print_R(char *);
 
 #endif

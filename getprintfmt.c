@@ -67,6 +67,12 @@ int print_fmt2(char c, va_list list, char flag)
 		case ('u'):
 			count += print_u(va_arg(list, int), 10);
 			break;
+		case ('r'):
+			count += print_r(va_arg(list, char*));
+			break;
+		case ('R'):
+			count += print_R(va_arg(list, char*));
+			break;
 		default:
 			if (c != '%')
 				count += print_char('%');

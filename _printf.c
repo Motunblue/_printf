@@ -26,12 +26,12 @@ count = -1;
 break;
 }
 else
-{
-flag = getflag(*(format + 1));
-if (flag)
-++format;
-count += print_fmt(*(++format), list, flag);
-}
+	{
+		flag = getflag(*(format + 1));
+		if (flag)
+			++format;
+		count += print_fmt(*(++format), list, flag);
+	}
 format++;
 }
 print_char(-1);
